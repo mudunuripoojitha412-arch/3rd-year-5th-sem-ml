@@ -1,0 +1,9 @@
+
+ConfusionMatrixDisplay(
+    confusion_matrix=rf_cm,
+    display_labels=["Fake News", "True News"]
+).plot(values_format="d")
+
+plt.title("Random Forest - Confusion Matrix")
+plt.tight_layout()
+plt.show()
