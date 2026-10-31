@@ -1,0 +1,20 @@
+df = df[["title", "text", "label"]].copy()
+
+# Remove rows with missing title, text, or label.
+df = df.dropna(subset=["title", "text", "label"])
+
+# Combine title and article text into one input column.
+df["content"] = (
+    df["title"].astype(str).str.strip()
+    + " "
+    + df["text"].astype(str).str.strip()
+)
+
+# Remove rows where the combined content is empty.
+df = df[df["content"].str.strip() != ""]
+
+print("\nDataset shape after cleaning:", df.shape)
+print("\nMissing values:")
+print(df[["content", "label"]].isnull().sum())
+print("\nSample records:")
+print(df[["content", "label"]].head())
