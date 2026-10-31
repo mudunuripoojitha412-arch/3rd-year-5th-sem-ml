@@ -1,0 +1,28 @@
+
+rf_model_loaded = joblib.load(
+    BASE_DIR / "random_forest_fake_news_model.pkl"
+)
+
+lr_model_loaded = joblib.load(
+    BASE_DIR / "logistic_regression_fake_news_model.pkl"
+)
+
+tfidf_loaded = joblib.load(
+    BASE_DIR / "tfidf_vectorizer.pkl"
+)
+
+loaded_news_tfidf = tfidf_loaded.transform([sample_news])
+
+rf_loaded_prediction = rf_model_loaded.predict(loaded_news_tfidf)[0]
+lr_loaded_prediction = lr_model_loaded.predict(loaded_news_tfidf)[0]
+
+print("\nPREDICTION USING LOADED MODELS")
+print("--------------------------------")
+print(
+    "Random Forest:",
+    "True News" if rf_loaded_prediction == 1 else "Fake News"
+)
+print(
+    "Logistic Regression:",
+    "True News" if lr_loaded_prediction == 1 else "Fake News"
+)
