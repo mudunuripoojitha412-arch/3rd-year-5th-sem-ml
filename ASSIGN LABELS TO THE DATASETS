@@ -1,0 +1,4 @@
+
+fake_df["label"] = 0
+true_df["label"] = 1
+
