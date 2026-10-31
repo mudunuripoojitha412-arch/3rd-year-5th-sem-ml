@@ -1,0 +1,15 @@
+sample_news = """
+The government announced a new education program that will provide
+free digital learning resources to students across the country.
+The program is expected to improve access to online education.
+"""
+
+rf_result, lr_result = predict_news(sample_news)
+
+print("\n========== FINAL NEWS PREDICTION ==========")
+print("\nNews Article:")
+print(sample_news)
+
+print("\nRandom Forest Prediction:", rf_result)
+print("Logistic Regression Prediction:", lr_result)
+print("===========================================")
