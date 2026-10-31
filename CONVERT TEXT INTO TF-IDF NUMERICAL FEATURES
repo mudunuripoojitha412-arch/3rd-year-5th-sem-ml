@@ -1,0 +1,14 @@
+tfidf = TfidfVectorizer(
+    stop_words="english",
+    max_features=30000
+)
+
+# Fit the vectorizer only on training text.
+X_train_tfidf = tfidf.fit_transform(X_train)
+
+# Use the already-fitted vectorizer to transform test text.
+X_test_tfidf = tfidf.transform(X_test)
+
+print("\nTraining TF-IDF shape:", X_train_tfidf.shape)
+print("Testing TF-IDF shape:", X_test_tfidf.shape)
+
