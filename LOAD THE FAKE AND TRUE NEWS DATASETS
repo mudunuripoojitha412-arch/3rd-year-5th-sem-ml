@@ -1,0 +1,16 @@
+true_df = pd.read_csv(TRUE_PATH)
+fake_df = pd.read_csv(FAKE_PATH)
+
+print("True News dataset shape:", true_df.shape)
+print("Fake News dataset shape:", fake_df.shape)
+
+
+# ============================================================
+# 4. ASSIGN LABELS TO THE DATASETS
+# ============================================================
+
+# Label 0 represents Fake News.
+# Label 1 represents True News.
+
+fake_df["label"] = 0
+true_df["label"] = 1
