@@ -1,0 +1,18 @@
+def predict_news(news_text):
+    """
+    Predict whether a news article is Fake News or True News
+    using both trained machine learning models.
+    """
+
+    if not isinstance(news_text, str) or not news_text.strip():
+        raise ValueError("Please enter a non-empty news article.")
+
+    news_tfidf = tfidf.transform([news_text])
+
+    rf_prediction = rf_model.predict(news_tfidf)[0]
+    lr_prediction = lr_model.predict(news_tfidf)[0]
+
+    rf_result = "True News" if rf_prediction == 1 else "Fake News"
+    lr_result = "True News" if lr_prediction == 1 else "Fake News"
+
+    return rf_result, lr_result
