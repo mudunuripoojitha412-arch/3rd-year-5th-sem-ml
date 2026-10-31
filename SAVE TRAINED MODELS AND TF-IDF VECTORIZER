@@ -1,0 +1,16 @@
+joblib.dump(
+    rf_model,
+    BASE_DIR / "random_forest_fake_news_model.pkl"
+)
+
+joblib.dump(
+    lr_model,
+    BASE_DIR / "logistic_regression_fake_news_model.pkl"
+)
+
+joblib.dump(
+    tfidf,
+    BASE_DIR / "tfidf_vectorizer.pkl"
+)
+
+print("\nModels and TF-IDF vectorizer saved successfully!")
