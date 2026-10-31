@@ -1,0 +1,6 @@
+
+df = pd.concat([fake_df, true_df], ignore_index=True)
+
+print("\nTotal number of records:", len(df))
+print("\nClass distribution:")
+print(df["label"].value_counts())
